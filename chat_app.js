@@ -14,7 +14,7 @@ var server = net.createServer(function(c){
     messages.push(data.toString().trim())
 	for (var i = 0; i < clients.length; i++){
 		 if (c !== clients[i]){
-		users[i].write(data);
+		clients[i].write(data);
 		}
 		}
 	});
