@@ -12,18 +12,20 @@ var server = net.createServer(function(c){
 
     c.on("data", function(data){
     messages.push(data.toString().trim())
-	for (var i = 0; i < clients.length; i++)
-		} if (c !== clients[i]){
+	for (var i = 0; i < clients.length; i++){
+		 if (c !== clients[i]){
 		users[i].write(data);
-		});
+		}
+		}
+	});
 
 
 	c.on("end"){
-	for (var i = 0; i < clients.length; i++)
-		} if (c === clients[i]){
-        clients.splice(i,1)
+	for (var i = 0; i < clients.length; i++){
+		 if (c === clients[i]){
+        clients.splice(i,1);
     	};
-
+	}
 });
 
 server.listen(port, function(){
