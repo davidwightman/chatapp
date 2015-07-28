@@ -20,13 +20,15 @@ var server = net.createServer(function(c){
 	});
 
 
-	c.on("end"){
-	for (var i = 0; i < clients.length; i++){
-		 if (c === clients[i]){
-        clients.splice(i,1);
-    	};
-	}
+	c.on("end", function(c) {
+		for (var i = 0; i < clients.length; i++){
+			if (c === clients[i]){
+        		clients.splice(i,1);
+    		};
+		}
+	});
 });
+
 
 server.listen(port, function(){
     console.log('listening on ' + port);
